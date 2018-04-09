@@ -60,12 +60,25 @@ public enum Algorithm: CustomStringConvertible {
     /// Sign a message using the algorithm
     func sign(_ message: String) -> String {
         func signHS(_ key: String, variant: CryptoSwift.HMAC.Variant) -> String {
-            let keyData = key.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-            let messageData = message.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+            guard let keyData = key.data(using: .utf8, allowLossyConversion: false),
+                let messageData = message.data(using: .utf8, allowLossyConversion: false) else {
+                assertionFailure("key: \(key) or message: \(message) can't be UTF-8 encoded")
+                return ""
+            }
+            
             let mac = HMAC(key: keyData.bytes, variant: variant)
-            let result = (try? mac.authenticate(messageData.bytes)) ?? []
-   
-            return base64_encode(Data(bytes: result))
+            
+            guard let result = try? mac.authenticate(messageData.bytes) else {
+                assertionFailure("Message Authentication Code can't be obtained")
+                return ""
+            }
+            
+            guard let output = base64_encode(Data(bytes: result)) else {
+                assertionFailure("Message Authentication Code can't be base64 encoded")
+                return ""
+            }
+            
+            return  output
         }
         
         switch self {
@@ -97,9 +110,18 @@ public enum Algorithm: CustomStringConvertible {
  - returns: The JSON web token as a String
  */
 public func encode(_ payload: Payload, algorithm: Algorithm) -> String {
-    func encodeJSON(_ payload:Payload) -> String {
-        let data = try! JSONSerialization.data(withJSONObject: payload, options: [])
-        return base64_encode(data)
+    func encodeJSON(_ payload: Payload) -> String {
+        guard let data = try? JSONSerialization.data(withJSONObject: payload, options: []) else {
+            assertionFailure("\(payload) isn't JSONObject")
+            return ""
+        }
+        
+        guard let output = base64_encode(data) else {
+            assertionFailure("\(payload) can't be base64 encoded")
+            return ""
+        }
+        
+        return output
     }
     
     let header = encodeJSON(["typ": "JWT", "alg": algorithm.description])

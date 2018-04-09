@@ -9,10 +9,12 @@
 import Foundation
 
 /// URI Safe base64 encode
-func base64_encode(_ input: Data) -> String {
+func base64_encode(_ input: Data) -> String? {
     let data = input.base64EncodedData(options: [])
-  let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-    return string
+    
+    let output = String(data: data, encoding: .utf8)
+    
+    return output?
         .replacingOccurrences(of: "+", with: "-", options: [], range: nil)
         .replacingOccurrences(of: "/", with: "_", options: [], range: nil)
         .replacingOccurrences(of: "=", with: "", options: [], range: nil)

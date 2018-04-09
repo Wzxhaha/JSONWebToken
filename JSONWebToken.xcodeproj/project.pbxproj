@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EC15FE0207B549B00487CF3 /* JWTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC15FDF207B549B00487CF3 /* JWTTests.swift */; };
 		D428B23D1D65A485007926EC /* JSONWebToken.h in Headers */ = {isa = PBXBuildFile; fileRef = D428B23C1D65A485007926EC /* JSONWebToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D428B2441D65A485007926EC /* JSONWebToken.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D428B2391D65A485007926EC /* JSONWebToken.framework */; };
-		D428B2491D65A485007926EC /* JSONWebTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D428B2481D65A485007926EC /* JSONWebTokenTests.swift */; };
+		D428B2491D65A485007926EC /* Base64Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D428B2481D65A485007926EC /* Base64Tests.swift */; };
 		D428B2551D65A7E0007926EC /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D428B2541D65A7E0007926EC /* CryptoSwift.framework */; };
 		D428B2571D65A8AA007926EC /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = D428B2561D65A8AA007926EC /* Base64.swift */; };
 		D428B2591D65AA62007926EC /* Claims.swift in Sources */ = {isa = PBXBuildFile; fileRef = D428B2581D65AA62007926EC /* Claims.swift */; };
@@ -28,11 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EC15FDF207B549B00487CF3 /* JWTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTTests.swift; sourceTree = "<group>"; };
 		D428B2391D65A485007926EC /* JSONWebToken.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JSONWebToken.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D428B23C1D65A485007926EC /* JSONWebToken.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONWebToken.h; sourceTree = "<group>"; };
 		D428B23E1D65A485007926EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D428B2431D65A485007926EC /* JSONWebTokenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONWebTokenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D428B2481D65A485007926EC /* JSONWebTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONWebTokenTests.swift; sourceTree = "<group>"; };
+		D428B2481D65A485007926EC /* Base64Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64Tests.swift; sourceTree = "<group>"; };
 		D428B24A1D65A485007926EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D428B2541D65A7E0007926EC /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		D428B2561D65A8AA007926EC /* Base64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base64.swift; sourceTree = "<group>"; };
@@ -93,7 +95,8 @@
 		D428B2471D65A485007926EC /* JSONWebTokenTests */ = {
 			isa = PBXGroup;
 			children = (
-				D428B2481D65A485007926EC /* JSONWebTokenTests.swift */,
+				D428B2481D65A485007926EC /* Base64Tests.swift */,
+				1EC15FDF207B549B00487CF3 /* JWTTests.swift */,
 				D428B24A1D65A485007926EC /* Info.plist */,
 			);
 			path = JSONWebTokenTests;
@@ -233,7 +236,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D428B2491D65A485007926EC /* JSONWebTokenTests.swift in Sources */,
+				D428B2491D65A485007926EC /* Base64Tests.swift in Sources */,
+				1EC15FE0207B549B00487CF3 /* JWTTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

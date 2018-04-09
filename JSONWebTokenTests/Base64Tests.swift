@@ -9,12 +9,7 @@
 import XCTest
 @testable import JSONWebToken
 
-class JSONWebTokenTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-    }
-    
+class Base64Tests: XCTestCase {
     func testEncode() {
         let input1 = "test"
         
